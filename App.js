@@ -144,15 +144,16 @@ export default function Game2048() {
         style={{
           backgroundColor: "#bbada0",
           borderRadius: 10,
-          padding: 16,
+          padding: 12,  // Equal padding around grid
           boxShadow: "0 4px 8px rgba(0,0,0,0.25)",
+          boxSizing: "border-box",
         }}
       >
         <div
           style={{
             display: "grid",
             gridTemplateColumns: `repeat(${SIZE}, 75px)`,
-            gridGap: 12,
+            gap: 12,        // consistent gap for equal margin
           }}
         >
           {board.flat().map((cell, i) => (
@@ -172,6 +173,8 @@ export default function Game2048() {
                 boxShadow:
                   cell !== 0 ? "inset 0 4px 6px rgba(255,255,255,0.3)" : "none",
                 transition: "background-color 0.3s ease",
+                margin: 0,
+                boxSizing: "border-box",
               }}
             >
               {cell !== 0 ? cell : ""}
